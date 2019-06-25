@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Gallery</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-color: white;
+            background-size: cover;
+        }
+
+        /* Style the side navigation */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            padding-top: 0;
+            left: 0;
+            overflow: hidden;
+            padding-top: 0;
+            border-right: 5px solid rgba(0, 0, 0, 0.50);
+            transition: 0.5s;
+        }
+
+
+            /* Side navigation links */
+            .sidenav a {
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                font-size: 22px;
+                text-align: center;
+                color: #000000;
+                text-shadow: 0px 3px 0px rgba(0, 0, 0, 0.25);
+                padding: 20px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                transition: 0.3s;
+            }
+
+                /* Change color on hover */
+                .sidenav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: -25px;
+                right: 150px;
+                font-size: 36px;
+                margin-left: 50px;
+                cursor: pointer;
+            }
+
+        .openpointer {
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top: 30px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        /* Style the content */
+        .content {
+            margin-left: 200px;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            font-size: 45px;
+            text-align: center;
+            color: #000000;
+            text-shadow: 0px 5px 0px rgba(0, 0, 0, 0.50);
+        }
+
+        h2 {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            font-size: 30px;
+            text-align: center;
+            color: #000000;
+            text-shadow: 0px 3px 0px rgba(0, 0, 0, 0.50);
+        }
+
+        #video {
+            padding-top: 150px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 100px;
+        }
+
+        .footer {
+            position: fixed;
+            right: 15px;
+            bottom: 0;
+            color: black;
+            text-align: right;
+        }
+
+        span {
+            font-size: 60px;
+        }
+
+        .hide {
+            display: none;
+        }
+        .slideShowContainer {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+           
+        .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+            }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .img {
+            width: 800px;
+            height: 600px;
+        }
+            
+         .active, .hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <h3><img href="javascript:void(0)" class="closebtn" onclick="closeNav()" src="https://img.icons8.com/ios/100/000000/multiply.png"></h3>
+        <a href="./AlienSurvivalGuide.html">H O M E</a>
+        <a href="./Gallery.html">G A L L E R Y</a>
+        <a href="#">V I D E O S</a>
+        <a href="#">T I M E L I N E</a>
+        <a href="#">G A M E</a>
+        <a href="#">A B O U T</a>
+
+    </div>
+
+    <img id="openBtn" class="openpointer" onclick="openNav()" src="https://img.icons8.com/ios/50/000000/menu-filled.png">
+
+    <div class="footer">
+        <p>Copyright &copy; StartIT4 2019</p>
+    </div>
+
+    <div class="content">
+        <h1>Know Your Enemy</h1>
+        <h2>Alien Spicies and UFOs</h2>
+        <div class="slideShowContainer">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1/4</div>
+                <img class="img"src="https://thevlm.org/wp-content/uploads/birds-bald-eagle.jpg" />
+                <div class="text">Bald Eagle</div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2/4</div>
+                <img class="img"src="http://r.ddmcdn.com/w_830/s_f/o_1/cx_98/cy_0/cw_640/ch_360/APL/uploads/2015/07/cecil-AP463227356214-1000x400.jpg" />
+                <div class="text">Lion</div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3/4</div>
+                <img class="img"src="https://ichef.bbci.co.uk/childrens-responsive-ichef-live/r/880/1x/cbbc/Animaltastic_Ambigous_Animals_Names_1024_576.jpg" />
+                <div class="text">Red Panda</div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4/4</div>
+                <img class="img"src="https://defenders.org/sites/default/files/styles/homepage-feature-2015/public/hero-wolf-howling-serdar-uckun.png?itok=Mvvq6kfq" />
+                <div class="text">Wolf</div>
+
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br />
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+
+
+
+        </div>
+    </div>
+
+    <script>
+        var open = document.getElementById("open");
+        /* Set the width of the side navigation to 250px */
+        function openNav() {
+
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("openBtn").classList.add("hide");
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("openBtn").classList.remove("hide");
+
+        }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+    </script>
+</body>
+</html>
